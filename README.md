@@ -43,6 +43,10 @@ The fourth step is to undertake **correlation analysis** to guide our feature se
 
 Our final step is to develop a linear regression model, with our dependent variable as the number of shares and our features selected from the remaining columns available in our dataset. In the first round, the choice of the variable will be driven by the analysis conducted above, and economic rationale for inclusion of specific variables. We may consider **interaction terms** where it makes logical sense. As we undertake the exercise of estimating our multiple linear regression, we will heavily rely on the output of the model, where we may consider dropping features that are **not statistically significant**, determined by the **p-value**. To ensure our standard errors are robust, we plan on conducting tests of **heteroskedasticity** and run a robust model if need be. We will also test the other assumptions that are made while estimating our linear regression model (such as independence and normality of the residuals etc.) using appropirate **scatter-plots** or other formal statistical tests, when possible. 
 
+Here are the links to the EDA we have conducted thus far:
+https://github.com/UBC-MDS/online_news_popularity/blob/main/results/EDA_First_Attempt.ipynb
+https://github.com/UBC-MDS/online_news_popularity/blob/main/results/EDA_initial.ipynb
+
 ## Sharing Our Results
 
 Our results will be shared in the form of a final document which will embed a range of analyses conducted (which has been referenced above). Our base comparison would be to a linear regression with one feature, and we will explore different combinations of features to optimize a model that minimizes the sum of squared residuals and maximizes the R-Squared. 
