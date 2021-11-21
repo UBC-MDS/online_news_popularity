@@ -1,0 +1,47 @@
+---
+title: "Code of Conduct"
+author: "Jennifer Hoang, Linhan Cai, Nagraj Rao"
+date: "11/20/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+##Our Pledge
+
+Our team strongly believes in ensuring that we have a welcome environment which is open and inclusive. We will work towards ensuring that all team members pledge to contribute to our project. We will wholeheartedly participate both in contributing and maintaining this project. We pledge to ensure that the team work is free of harassment for any team member, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity, and orientation.
+
+##Our Standards
+
+Listed below are a few examples of behavior that we believe helps enable a positive environment:
+1. Language that is inclusive, welcoming, and non-judgemental
+2. Approaching different viewpoints, suggestions, or experiences in a respectful manner. 
+3. Ensuring that we provide and accept constructive feedback in the spirit it is given, i.e. to enhance the project. 
+4. Put what is best for our team rather than focusing on individual gains.
+5. Display empathy towards other teammates knowing that we all have a lot of other things going on besides classes. 
+
+
+Listed below are a few examples of behavior that is unacceptable:
+1. Using language with overt or subvert sexualized messaging or tone, making unwelcome sexual advances or attention. 
+2. Making political attacks, using insulting or derogatory language/comments, any form of trolling (be it virtual or in person), and any form of personal or professional attacks that are unwarranted.
+3. Any form of harassment, be in a public or private setting.
+4. Releasing team member’s private data and information without explicit permission. This includes but is not restricted to address, phone number, email address, contact information on any social media etc. (in case of doubt, ASK!).
+5. Any other behavior or conduct that would be considered inappropriate in any professional setting. While we are working in a cross-cultural environment, there may be some differences across the spectrum. When in doubt, better to dial it back, or ask your teammates, instructor(s), or TA’s about it before trying it out. 
+
+##Our Responsibilities
+
+Team members have agreed upon these standards of acceptable behavior. If any clarification is needed, consult the full team, since we are only 3 members. If any lapses are found particularly with unacceptable behavior, it is the team’s responsibility to address it immediately, with fairness, and appropriate suggestions for corrective measures. This includes removing, editing, or rejecting any comments, commits, codes, and other contributions that are not in alignment with this Code of Conduct. This is particularly true of behaviors that a majority believe are inappropriate, threatening, offensive, or harmful, and such issues will be flagged to the instructor(s).
+
+##Scope
+
+Our Code of Conduct not only applies to project and non-project spaces (be it physical, public, virtual, or private spaces). This includes spaces where one of our team members is representing our team to the rest of the class and/or the instructors. Such representation can be in the form of e-mail, Slack messages, social media messages, or in-person/virtual events. This definition of representing the project can evolve over time and will be agreed upon by all team members. 
+
+##Enforcement
+
+Any instance of abuse, harassment, and/or other forms of unacceptable behavior will be reported first to other team member(s). The team will meet, review, and investigate any complaints, and will come to a resolution in writing which will be mutually agreed upon. The project team will maintain complete confidentiality of any such reported incident outside the team, unless a resolution is not arrived at, in which case the team can escalate it to the instructor(s). 
+Project team members who do not adhere to or enforce the Code of Conduct will receive one warning, and if unresolved will be reported to the instructor(s). 
+
+##Attribution
+
+This code is adapted and modified from the Tidyverse Code of Conduct, available at https://github.com/tidyverse/tidyverse.org/blob/master/CODE_OF_CONDUCT.md. The Tidyverse Code of Conduct in turn has been adapted from the Contributor Covenant, version 1.4, available at http://contributor-covenant.org/version/1/4. 
