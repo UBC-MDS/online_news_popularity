@@ -31,6 +31,11 @@ def main(raw_data, out_dir):
     data['shares_per_day'] = data['shares'] / data['timedelta']
     data['log_shares_per_day'] = np.log(data['shares_per_day'])
     
+    # Remove outliers below 1% and above 99% quantile
+    upper_cutoff = data['shares_per_day'].quantile(0.99)
+    lower_cutoff = data['shares_per_day'].quantile(0.01)
+    data = data.query("@lower_cutoff < shares_per_day < @upper_cutoff")
+    
     # Write cleaned data file
     out_file = os.path.join(out_dir, 'OnlineNewsPopularity_clean.csv')
     try:
@@ -40,6 +45,7 @@ def main(raw_data, out_dir):
         os.mkdir(out_dir)
         data.to_csv(out_file, index=False)
 
-
+    print("File created in:", out_dir)
+        
 if __name__ == "__main__":
     main(opt["--raw_data"], opt["--out_dir"])
