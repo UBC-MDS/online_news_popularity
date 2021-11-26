@@ -1,0 +1,40 @@
+---
+title: "Online News Popularity - Analysis Report"
+author: Nagraj Rao, Linhan Cai, Jennifer Hoang
+date: "`r Sys.Date()`"
+bibliography: "online_news_pop.bib"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Summary
+
+
+
+## Introduction
+
+The online news market space has grown rapidly in recent decades, leading to increased competition between traditional news outlets and non-traditional digital news sources. Understanding the factors associated with popularity of news articles online is vital for guiding publishing strategies of news agencies in order for them to remain competitive in the online news space. Here, we assessed factors associated with online news popularity using a public dataset with statistics from originally published on Mashable (www.mashable.com) in 2015 [@online-news].
+
+
+## Methods
+
+### Data Cleaning
+
+
+
+### Statistical Analysis
+
+
+
+## Results
+
+
+
+## Discussion
+
+
+
+## References
