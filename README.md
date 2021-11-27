@@ -36,12 +36,26 @@ python src/onp_data_preprocess.py --raw_data='data/raw/OnlineNewsPopularity/Onli
 # Create EDA plots
 python src/eda.py --data_path='data/raw/OnlineNewsPopularity/OnlineNewsPopularity.csv' --figures_path='results/figures/'
 
+# Run R regression analysis
+
+
+# Create report
+
 ```
 
 ## Dependencies
+- Python version 3.9.5 and Python packages:
+  - docopt=0.6.2
+  - altair=4.1.0
+  - altair-data-server=0.4.1
+  - altair-saver=0.5.0
+  - pandas=1.3.4
+  - numpy=1.21.4
+R version 4.1.1 and R packages:
+  - knitr=1.33
+  - tidyverse=1.3.1
+  - docopt=0.7.1
 
-
-  
 ## References
 
 Online News Popularity. (2015). UCI Machine Learning Repository. Available at: https://archive-beta.ics.uci.edu/ml/datasets/online+news+popularity.
