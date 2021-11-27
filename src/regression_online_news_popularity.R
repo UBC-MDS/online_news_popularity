@@ -525,7 +525,7 @@ ggsave(here(opt$out_dir, "Figure_2.png"), width = 7, height = 3)
 Figure_3 <- ggplot(data, aes(x = residuals)) +
   geom_histogram(bins = 50, color = 'white') +
   ggtitle("Histogram of Residuals")
-ggsave(here(opt$out_dir, "Figure_3.png"), width = 7, height = 3)
+ggsave(here(opt$out_dir, "Figure_3.png"), width = 4, height = 3)
 
 
 }
