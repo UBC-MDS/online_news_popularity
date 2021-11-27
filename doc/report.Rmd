@@ -1,9 +1,11 @@
 ---
 title: "Online News Popularity - Analysis Report"
-author: Nagraj Rao, Linhan Cai, Jennifer Hoang
+author: "Nagraj Rao, Linhan Cai, Jennifer Hoang"
 date: "`r Sys.Date()`"
-bibliography: "online_news_pop.bib"
-output: html_document
+output:
+  html_document:
+    df_print: paged
+bibliography: online_news_pop.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -21,7 +23,7 @@ backstep_glance <- readRDS("../results/model-data/mlr_backstep_glance.rds")
 ```
 
 Our GitHub Repo:
-[**INSERT HERE**](https://github.com/){.uri}
+[**LINK HERE**](https://github.com/UBC-MDS/online_news_popularity){.uri}
 
 ## Summary
 

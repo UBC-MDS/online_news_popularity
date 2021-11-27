@@ -22,7 +22,7 @@ Using a multiple linear regression analysis with 'log shares per day' as our res
 
 ## Report
 
-The final report is linked: 
+The final report is linked: https://github.com/UBC-MDS/online_news_popularity/blob/main/doc/report.pdf
 
 ## Usage
 
@@ -40,7 +40,7 @@ python src/eda.py --data_path='data/raw/OnlineNewsPopularity/OnlineNewsPopularit
 Rscript src/regression_online_news_popularity.R --in_file='data/processed/OnlineNewsPopularity_clean.csv' --figures_path='results/figures/' -tables_path='results/tables/' --model_path='results/model-data'
 
 # Create report
-
+Rscript -e "rmarkdown::render('doc/report.Rmd', output_format = 'pdf_document')"
 ```
 
 ## Dependencies
@@ -51,7 +51,7 @@ Rscript src/regression_online_news_popularity.R --in_file='data/processed/Online
   - altair-saver=0.5.0
   - pandas=1.3.4
   - numpy=1.21.4
-R version 4.1.1 and R packages:
+- R version 4.1.1 and R packages:
   - knitr=1.33
   - tidyverse=1.3.1
   - docopt=0.7.1
