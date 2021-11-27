@@ -8,7 +8,20 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(broom)
+library(knitr)
+library(here)
+
 ```
+
+```{r load_model_results, include=FALSE}
+backstep_tidy <- readRDS("../results/model-data/mlr_backstep_tidy.rds")
+backstep_glance <- readRDS("../results/model-data/mlr_backstep_glance.rds")
+```
+
+Our GitHub Repo:
+[**INSERT HERE**](https://github.com/){.uri}
 
 ## Summary
 
@@ -33,9 +46,13 @@ creating a Shares per Day features (Shares / Days since Publication), followed b
 Lastly, outliers in the log Shares per Day were removed using the Winsorization method, where we defined outliers to be values 
 lower than the 1% percentile and greater than the 99% percentile. Data cleaning was performed using Python [@python] and Pandas [@pandas].
 
-### Statistical Analysis
+#### Statistical Analysis
 
-## Results
+A Multiple Linear Regression model was used to understand what factors are associated with online news popularity. We estimated six versions of this model using “log_shares_per_day” as our dependent variable until we arrived at a regression where all features were statistically significant at the 95% confidence level. This was compared to both forward and backward selection models using VIF scores, R-Squared, and the time taken to run each model to arrive at the best model, which in our case was backward selection model. Finally, we plot the distribution of residuals to visually assess if it follows a normal distribution.
+
+The R programming language [@R] and the following R packages were used to perform the statistical analysis outlined in this section: broom [@broom], car [@car], docopt [@docopt], tidyverse [@tidyverse].
+
+## Results and Discussion
 #### EDA
 Through exploratory data analysis, we determined that some of the features were not informative to answering our question or contained many missing values. We find out the summary statistics for each variable, the features correlation greater than 0.7 and the distributions of shares vary based on day of the week and topics. 2 versions of EDA code can be found [here](https://github.com/UBC-MDS/group29/blob/main/results/EDA_First_Attempt.ipynb) and [here](https://github.com/UBC-MDS/group29/blob/main/results/EDA_initial.ipynb).
 
@@ -54,14 +71,21 @@ Correlation plot showing the strength, direction, and form of the relationship b
 knitr::include_graphics("../results/figures/03_EDA-Correlation-Plot.png")
 ```
 
-
 Before model testing, data cleaning was done to address the findings of  non-informative features, class imbalance, NAN values. And we calculate the shares_per_day and remove outliers, this code can be found  [here](https://github.com/UBC-MDS/group29/blob/main/src/processingdata.py). 
 
+#### Statistical Analysis
+The results of our best model, derived from Backward Model Selection is shown below: 
+```{r regression_model, echo=FALSE, fig.cap="Table 1. Backward Selection Model Results", fig.align='center', out.width = '100%'}
+kable(backstep_tidy, caption = "Table 1. Backstep Model Results")
+kable(backstep_glance, caption = "Table 2. Backstep Model Model Performance")
+```
+Overall, our model has an R-Squared of 0.2051. This seems like a low R-Squared, particularly given the large number of features included in the model and their statistical significance at alpha = 0.05. This indicates that other variables that are not currently included in the model explain a large portion of the variability in our data. There is not much we can do about this problem, beyond including some interaction variables to assess if there are any interaction effects.
 
+Finally, we plot a distribution of the residuals, which looks normally distributed, one of the assumptions of a linear regression.
 
-
-## Discussion
-
-
+```{r residual_normality_plot, echo=FALSE, fig.cap="Figure 4. Histogram of Residuals", fig.align='center', out.width = '50%'}
+knitr::include_graphics("../results/figures/Figure_3.png")
+```
+As next steps, we need to consider if interaction terms can help improve model performance, and perform rigorous statistical tests for the remaining assumptions of a multiple linear regression model – heteroscedasticity and normality of residuals.
 
 ## References
