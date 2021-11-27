@@ -27,33 +27,31 @@ The online news market space has grown rapidly in recent decades, leading to inc
 
 ### Statistical Analysis
 #### EDA
-During EDA on the raw data, we try merging data channels and the weekday columns into one column, then explore data type of the variables in the data set and summary Statistics for each variable. By creating correlation plot and correlation matrix, we try to find out the important features and in the end, we explore bar graph showing how number of shares vary based on topic, how number of shares vary based on day of the week, and try histogram showing how number of shares vary based on day of the week.  The code used to perform the EDA can be found [here](https://github.com/UBC-MDS/online_news_popularity/tree/main/src).
+During EDA on the raw data, we try merging data channels and the weekday columns into one column, then explore data type of the variables in the data set and summary Statistics for each variable. By creating correlation plot and correlation matrix, we try to find out the important features and in the end, we explore bar graph showing how number of shares vary based on topic, how number of shares vary based on day of the week, and try histogram showing how number of shares vary based on day of the week. Finally we made the matrix to pick the features whose coefficient is larger than 0.7.  The code used to perform the 2 versions EDA can be found [here](https://github.com/UBC-MDS/online_news_popularity/tree/main/src).
 
 
 
 ## Results
 #### EDA
-Through exploratory data analysis, we determined that some of the features were not informative to answering our question or contained many missing values.
+Through exploratory data analysis, we determined that some of the features were not informative to answering our question or contained many missing values. We find out the summary statistics for each variable, the features correlation greater than 0.7 and the distributions of shares vary based on day of the week and topics. 2 versions of EDA code can be found [here](https://github.com/UBC-MDS/group29/blob/main/results/EDA_First_Attempt.ipynb) and [here](https://github.com/UBC-MDS/group29/blob/main/results/EDA_initial.ipynb).
 
-(NEED CHANGES??????Before model testing, data cleaning was done to address the findings of  non-informative features, class imbalance, NAN values, and duplicate encounters, and this code can be found [here](https://github.com/UBC-MDS/group29/blob/main/src/processingdata.py). Non informative features included encounter id and patient number as those were entirely unique values. We removed weight, payer_code, medical_speciality, examide and citoglipton because much of the information was missing or all values in the column were the same. We were unsure about the race columns as majority of the patients were Caucasian and we did not want to add any racial biases to the data. As shown below, the distribution of race was reviewed to determine that there was no significant difference between different races in patient readmission and therefore the race column was removed from our analysis to prevent any bias.
-
-```{r race_figure, echo=FALSE, fig.cap="Figure 1. Distribution of Race and Readmission Status", out.width = '40%', fig.align = 'center'}
-knitr::include_graphics("../reports/figures/figure1_racedist_eda.svg")
+Bar graph showing how number of shares vary based on topic. Several of the topics were reviewed by plotting the distribution of the shares based on different topic, Except others, "Business" and "Tech" take the largest 2 shares. The shares left "Entertainment","Lifestyle" and "World" takes almost equal shares, and "Social media" takes the smallest shares.
+```{r topic_distribution_figure, echo=FALSE, fig.cap="Figure 1. Distribution of Shares Based on Topics", out.width = '40%', fig.align = 'center'}
+knitr::include_graphics("../results/figures/01_EDA-Bar-Plot-Data-Channel.png")
 ```
 
-Several of the numerical features were reviewed by plotting the distribution of the feature for the two different target classes against each other and found the primary diagnosis of the patient, days spent in hospital, number of medications taken and the frequency of lab procedures to be most informative of predicting readmission status. The importance of the primary diagnosis feature is that if the initial diagnosis is diabetes perhaps patients received better care during their first encounter and thus do not get readmitted [@paper].
-
-```{r numeric_features, echo=FALSE, fig.cap="Figure 2. Distribution of Numeric Features and Readmission Status", fig.align='center', out.width = '100%'}
-knitr::include_graphics("../reports/figures/figure2_numhisttarget_eda.svg")
+Histogram showing how number of shares vary based on day of the week. Several of the weekdays were reviewed by plotting the distribution of the shares based on different weekdays, Except others, "Wednesday", "Monday" and "Saturday" take the largest 3 shares. The "Tuesday","Friday" and "Thursday" takes almost equal shares, and "Sunday" takes the smallest shares.
+```{r day_distribution_figure, echo=FALSE, fig.cap="Figure 1. Distribution of Shares Based on weekdays", out.width = '40%', fig.align = 'center'}
+knitr::include_graphics("../results/figures/02_EDA-Shares-Histogram.png")
 ```
 
-Several of the categorical features were also reviewed in a similar format to the numerical features analysis, and found that metformin, insulin, and Hemoglobin A1C levels were most informative of predicting readmission status. Testing for hemoglobin levels may have resulted in applicable changes to the medications and thus better management of diabetes during their hospital stay, preventing readmission [@NI]. 
-
-```{r categorical_features, echo=FALSE, fig.cap="Figure 3. Distribution of Categorical Features and Readmission Status", fig.align='center', out.width = '100%'}
-knitr::include_graphics("../reports/figures/figure3_numcattarget_eda.svg")
+Correlation plot showing the strength, direction, and form of the relationship between 2 features. It shows the kw_avg_avg(Avg. keyword (avg. shares)) has its strongest correlation with shares. The second most correlated feature to shares value is kw_max_max(Best keyword (max. shares)) which quite make sense. 
+```{r correlation_features, echo=FALSE, fig.cap="Figure 3. Distribution of Features Correlation Matrix", fig.align='center', out.width = '100%'}
+knitr::include_graphics("../reports/figures/03_EDA-Correlation-Plot.png")
 ```
 
-??????)
+
+Before model testing, data cleaning was done to address the findings of  non-informative features, class imbalance, NAN values. And we calculate the shares_per_day and remove outliers, this code can be found  [here](https://github.com/UBC-MDS/group29/blob/main/src/processingdata.py). 
 
 
 ## Discussion
