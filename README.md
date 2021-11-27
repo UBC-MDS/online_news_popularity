@@ -37,7 +37,7 @@ python src/onp_data_preprocess.py --raw_data='data/raw/OnlineNewsPopularity/Onli
 python src/eda.py --data_path='data/raw/OnlineNewsPopularity/OnlineNewsPopularity.csv' --figures_path='results/figures/'
 
 # Run R regression analysis
-
+Rscript src/regression_online_news_popularity.R --in_file='data/processed/OnlineNewsPopularity_clean.csv' --figures_path='results/figures/' -tables_path='results/tables/' --model_path='results/model-data'
 
 # Create report
 
