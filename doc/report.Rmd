@@ -26,10 +26,33 @@ The online news market space has grown rapidly in recent decades, leading to inc
 
 
 ### Statistical Analysis
+#### EDA
+During EDA on the raw data, we try merging data channels and the weekday columns into one column, then explore data type of the variables in the data set and summary Statistics for each variable. By creating correlation plot and correlation matrix, we try to find out the important features and in the end, we explore bar graph showing how number of shares vary based on topic, how number of shares vary based on day of the week, and try histogram showing how number of shares vary based on day of the week. Finally we made the matrix to pick the features whose coefficient is larger than 0.7.  The code used to perform the 2 versions EDA can be found [here](https://github.com/UBC-MDS/online_news_popularity/tree/main/src).
 
 
 
 ## Results
+#### EDA
+Through exploratory data analysis, we determined that some of the features were not informative to answering our question or contained many missing values. We find out the summary statistics for each variable, the features correlation greater than 0.7 and the distributions of shares vary based on day of the week and topics. 2 versions of EDA code can be found [here](https://github.com/UBC-MDS/group29/blob/main/results/EDA_First_Attempt.ipynb) and [here](https://github.com/UBC-MDS/group29/blob/main/results/EDA_initial.ipynb).
+
+Bar graph showing how number of shares vary based on topic. Several of the topics were reviewed by plotting the distribution of the shares based on different topic, Except others, "Business" and "Tech" take the largest 2 shares. The shares left "Entertainment","Lifestyle" and "World" takes almost equal shares, and "Social media" takes the smallest shares.
+```{r topic_distribution_figure, echo=FALSE, fig.cap="Figure 1. Distribution of Shares Based on Topics", out.width = '40%', fig.align = 'center'}
+knitr::include_graphics("../results/figures/01_EDA-Bar-Plot-Data-Channel.png")
+```
+
+Histogram showing how number of shares vary based on day of the week. Several of the weekdays were reviewed by plotting the distribution of the shares based on different weekdays, Except others, "Wednesday", "Monday" and "Saturday" take the largest 3 shares. The "Tuesday","Friday" and "Thursday" takes almost equal shares, and "Sunday" takes the smallest shares.
+```{r day_distribution_figure, echo=FALSE, fig.cap="Figure 1. Distribution of Shares Based on weekdays", out.width = '40%', fig.align = 'center'}
+knitr::include_graphics("../results/figures/02_EDA-Shares-Histogram.png")
+```
+
+Correlation plot showing the strength, direction, and form of the relationship between 2 features. It shows the kw_avg_avg(Avg. keyword (avg. shares)) has its strongest correlation with shares. The second most correlated feature to shares value is kw_max_max(Best keyword (max. shares)) which quite make sense. 
+```{r correlation_features, echo=FALSE, fig.cap="Figure 3. Distribution of Features Correlation Matrix", fig.align='center', out.width = '100%'}
+knitr::include_graphics("../reports/figures/03_EDA-Correlation-Plot.png")
+```
+
+
+Before model testing, data cleaning was done to address the findings of  non-informative features, class imbalance, NAN values. And we calculate the shares_per_day and remove outliers, this code can be found  [here](https://github.com/UBC-MDS/group29/blob/main/src/processingdata.py). 
+
 
 
 
