@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Summary
 
-
+Online articles have become a primary source of news in the digital age. In order to understand factors associated with online news popularity, we examined factors associated with higher shares per day (log transformed) using a multiple linear regression analysis in a dataset containing 36,644 observations [@online-news]. Our final model, derived using backward model selection, achieved an R-squared score of 0.2132. Additional features that are not among our explanatory variables appear to explain a large portion of variability in the shares per day. Further analysis will be required to better understand the factors which associate with online news popularity.
 
 ## Introduction
 
@@ -52,6 +52,8 @@ knitr::include_graphics("../reports/figures/03_EDA-Correlation-Plot.png")
 
 
 Before model testing, data cleaning was done to address the findings of  non-informative features, class imbalance, NAN values. And we calculate the shares_per_day and remove outliers, this code can be found  [here](https://github.com/UBC-MDS/group29/blob/main/src/processingdata.py). 
+
+
 
 
 ## Discussion
