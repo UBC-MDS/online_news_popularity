@@ -1,11 +1,9 @@
 ---
 title: "Online News Popularity - Analysis Report"
-author: "Nagraj Rao, Linhan Cai, Jennifer Hoang"
+author: Nagraj Rao, Linhan Cai, Jennifer Hoang
 date: "`r Sys.Date()`"
-output:
-  html_document:
-    df_print: paged
-bibliography: online_news_pop.bib
+bibliography: "online_news_pop.bib"
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
