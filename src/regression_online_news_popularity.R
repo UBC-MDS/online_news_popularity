@@ -2,13 +2,16 @@
 # date: 2021-11-25
 
 "This script performs an analysis on the features associated with Online News Popularity
-Usage: analyse_socioeconomic_features.R --in_file=<in_file> --out_dir=<out_dir> 
+Usage: regression_online_news_popularity.R --in_file=<in_file> --out_dir=<out_dir> --figures_dir=<figures_dir>
 Options:
 --in_file=<in_file>           Path including filename of processed data
 --out_dir=<out_dir>           Directory of where to locally write the
-                              figures and tables
+                              tables
+--figures_dir=<figures_dir>   Directory of where to locally write the
+                              figures
 " -> doc
 
+# Rscript src/regression_online_news_popularity.R --in_file='data/processed/OnlineNewsPopularity_clean.csv' --out_dir='results/tables' --figures_dir='results/figures'
 
 library(feather)
 library(tidyverse)
@@ -512,20 +515,20 @@ residuals = resid(lm(formula(backstep), data=data))
 Figure_1 <- plot(fitted(lm(formula(backstep), data=data)), residuals)
 abline(0,0) #adding the abline
 
-ggsave(here(opt$out_dir, "Figure_1.png"), width = 7, height = 3)
+ggsave(here(opt$figures_dir, "Figure_1.png"), width = 7, height = 3)
 
 #FIGURE 2: CREATE Q-Q PLOT FOR RESIDUALS 
 Figure_2 <- qqnorm(residuals)
 qqline(residuals)  #add a straight diagonal line to the plot 
 
-ggsave(here(opt$out_dir, "Figure_2.png"), width = 7, height = 3)
+ggsave(here(opt$figures_dir, "Figure_2.png"), width = 7, height = 3)
 
 
 # FIGURE 3: CREATING HISTOGRAM PLOT FOR RESIDUALS 
 Figure_3 <- ggplot(data, aes(x = residuals)) +
   geom_histogram(bins = 50, color = 'white') +
   ggtitle("Histogram of Residuals")
-ggsave(here(opt$out_dir, "Figure_3.png"), width = 4, height = 3)
+ggsave(here(opt$figures_dir, "Figure_3.png"), width = 4, height = 3)
 
 
 }
