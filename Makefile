@@ -16,7 +16,7 @@ data/processed/OnlineNewsPopularity_clean.csv : data/raw/OnlineNewsPopularity/On
 
 # Create EDA plots
 results/figures/01_EDA-Bar-Plot-Data-Channel.png results/figures/02_EDA-Shares-Histogram.png results/figures/03_EDA-Correlation-Plot.png : data/raw/OnlineNewsPopularity/OnlineNewsPopularity.csv src/eda.py
-	mkdir results results/figures
+	mkdir results/figures
 	python src/eda.py --data_path='data/raw/OnlineNewsPopularity/OnlineNewsPopularity.csv' --figures_path='results/figures/'
 
 # Run R regression analysis
@@ -30,5 +30,6 @@ doc/report.pdf : results/figures/01_EDA-Bar-Plot-Data-Channel.png results/figure
 
 clean: 
 	rm -rf data
-	rm -rf results
+	rm -rf results/tables
+	rm -rf results/figures
 	rm -rf doc/report.pdf
