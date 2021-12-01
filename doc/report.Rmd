@@ -16,8 +16,8 @@ library(here)
 ```
 
 ```{r load_model_results, include=FALSE}
-backstep_tidy <- readRDS("../results/model-data/mlr_backstep_tidy.rds")
-backstep_glance <- readRDS("../results/model-data/mlr_backstep_glance.rds")
+backstep_tidy <- readRDS("../results/tables/mlr_backstep_tidy.rds")
+backstep_glance <- readRDS("../results/tables/mlr_backstep_glance.rds")
 ```
 
 Our GitHub Repo:
@@ -71,7 +71,7 @@ Correlation plot showing the strength, direction, and form of the relationship b
 knitr::include_graphics("../results/figures/03_EDA-Correlation-Plot.png")
 ```
 
-Before model testing, data cleaning was done to address the findings of  non-informative features, class imbalance, NAN values. And we calculate the shares_per_day and remove outliers, this code can be found  [here](https://github.com/UBC-MDS/group29/blob/main/src/processingdata.py). 
+Before model testing, data cleaning was done to address the findings of  non-informative features, class imbalance, NAN values. And we calculate the shares_per_day and remove outliers, this code can be found  [here](https://github.com/UBC-MDS/online_news_popularity/blob/main/src/onp_data_preprocess.py). 
 
 #### Statistical Analysis
 The results of our best model, derived from Backward Model Selection is shown below: 
