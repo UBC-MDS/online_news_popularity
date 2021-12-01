@@ -1,11 +1,11 @@
 # Online News Popularity
 
-# Authors: 
+A project assessing factors associated with online news popularity in accordance with DSCI 522 (Data Science Workflows) for the Master of Data Science Program at the University of British Columbia.
+
+## Authors: 
 
 Nagraj Rao, Linhan Cai, Jennifer Hoang
 
-A project assessing factors associated with online news popularity in accordance with DSCI 522 
-(Data Science Workflows) for the Master of Data Science Program at the University of British Columbia.
 
 ## Project Abstract
 
@@ -55,6 +55,10 @@ Rscript -e "rmarkdown::render('doc/report.Rmd', output_format = 'pdf_document')"
   - knitr=1.33
   - tidyverse=1.3.1
   - docopt=0.7.1
+  - feather=4.1.2
+  - caret=4.1.2
+  - here=4.1.2
+  - car=4.1.2
 
 ## References
 
