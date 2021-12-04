@@ -25,7 +25,7 @@ Our best model, which is the backward stepwise regression model, achieved an adj
 
 ## Report
 
-The final report is linked: https://github.com/UBC-MDS/online_news_popularity/blob/main/doc/report.pdf
+The final report is linked: http://htmlpreview.github.io/?https://github.com/UBC-MDS/online_news_popularity/blob/main/doc/report.html
 
 ## Usage
 
