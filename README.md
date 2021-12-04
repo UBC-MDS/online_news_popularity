@@ -10,15 +10,18 @@ Nagraj Rao, Linhan Cai, Jennifer Hoang
 ## Project Abstract
 
 The market space for online news has grown manifold, with traditional news outlets 
-also providing an online version of their articles. This growth has been complemented 
+also providing online versions of their articles. This growth has been complemented 
 with increased competition, particularly from non-traditional news outlets 
-(such as small-scale digital news companies) who can reach a wider audience through social-media. 
-For this project we aimed to answer the following inferential research question: 
-**What factors are associated with online news popularity, measured by the number of times an article has been shared?**. 
-Our findings will be relevant to news organizations that are interested in boosting traction of their online news articles 
-and may help guide management decisions on the characteristics associated with more popular articles. 
+such as small-scale digital news companies, who can reach a wider audience through social-media. As these companies optimize their staff and other resources, an important metric to be understood is what matters to gain online traction in order to capture a larger market share? 
 
-Using a multiple linear regression analysis with 'log shares per day' as our response variable, our model achieved an R-squared score of 0.2132. This indicates that additional features not included in our current model explain a large portion of variability in the data. Future steps for our analysis include exploring the contribution of interaction effects in our model, as well as other regression models such as random forest regression. 
+The aforementioned question propels our study. Here, we aim to answer the following inferential research question: **What factors are associated with online news popularity?**. 
+Our findings will be relevant to news organizations that are interested in boosting traction of their online news articles and may help guide management decisions on the characteristics associated with more popular articles. 
+
+The public dataset our team is using for conducting this analysis called "Online News Popularity", and is available on University of California's Machine Learning Repository (Online News Popularity, 2015). It has 36,644 observations (examples) and 61 columns (attributes), summarizing a range of characteristics about articles that were published by Mashable between 1 January, 2013 and 31 December, 2014. Each row represents a news article and includes covariates that are a mix of categorical, continuous, and binary features. We create a new feature called “log_shares_per_day” which is the log of (number of shares/ Days between the article publication and the dataset acquisition). 
+
+We rely on different specifications of a multiple linear regression model and adjusted R-Squared as our evaluation metric since it accounts for degrees of freedom compared to a traditional R-Squared. Adjusted R-Squared also defines the degree of variance in the dependent variable that can be explained by the independent variables. Other metrics such as RMSE or MAE do not not provide a range that will help us in establishing how well our model is doing.  
+
+Our best model, which is the backward stepwise regression model, achieved an adjusted R-squared score of 0.2051. This indicates that additional features not included in our current model explain a large portion of variability in the data. Future steps for our analysis include exploring the contribution of interaction effects in our model, as well as other regression models such as random forest regression. 
 
 ## Report
 
