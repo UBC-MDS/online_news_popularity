@@ -29,21 +29,13 @@ The final report is linked: http://htmlpreview.github.io/?https://github.com/UBC
 
 ## Usage
 
+The analysis used to create this report can be replicated by installing the dependencies below and running the following command from the project root directory in the command line/terminal.
 ```
-# Download data
-Rscript src/download_zip.R --url='https://archive.ics.uci.edu/ml/machine-learning-databases/00332/OnlineNewsPopularity.zip' --file_path='data/raw/'
-
-# Process data
-python src/onp_data_preprocess.py --raw_data='data/raw/OnlineNewsPopularity/OnlineNewsPopularity.csv' --out_dir='data/processed/'
-
-# Create EDA plots
-python src/eda.py --data_path='data/raw/OnlineNewsPopularity/OnlineNewsPopularity.csv' --figures_path='results/figures/'
-
-# Run R regression analysis
-Rscript src/regression_online_news_popularity.R --in_file='data/processed/OnlineNewsPopularity_clean.csv' --out_dir='results/tables' --figures_dir='results/figures'
-
-# Create report
-Rscript -e "rmarkdown::render('doc/report.Rmd', output_format = 'pdf_document')"
+make all
+```
+To reset the project directory and delete the analysis outputs, the following command can be run:
+```
+make clean
 ```
 
 ## Dependencies
@@ -62,6 +54,7 @@ Rscript -e "rmarkdown::render('doc/report.Rmd', output_format = 'pdf_document')"
   - caret=4.1.2
   - here=4.1.2
   - car=4.1.2
+- GNU Make 3.81
 
 ## References
 
