@@ -1,8 +1,8 @@
 # Online News Popularity
 # author: Jennifer Hoang, Nagraj Rao, Linhan Cai
-# date: 2021-12-01
+# date: 2021-12-04
 
-all: doc/report.pdf
+all: doc/report.html
 
 # Download data
 data/raw/OnlineNewsPopularity/OnlineNewsPopularity.csv : src/download_zip.R
@@ -25,11 +25,11 @@ results/tables/mlr_backstep_tidy.rds results/tables/mlr_backstep_glance.rds resu
 	Rscript src/regression_online_news_popularity.R --in_file='data/processed/OnlineNewsPopularity_clean.csv' --out_dir='results/tables' --figures_dir='results/figures'
 
 # Create report
-doc/report.pdf : results/figures/01_EDA-Bar-Plot-Data-Channel.png results/figures/02_EDA-Shares-Histogram.png results/figures/03_EDA-Correlation-Plot.png results/tables/mlr_backstep_tidy.rds results/tables/mlr_backstep_glance.rds results/figures/Figure_3.png doc/report.Rmd doc/online_news_pop.bib
-	Rscript -e "rmarkdown::render('doc/report.Rmd', output_format = 'pdf_document')"
+doc/report.html : results/figures/01_EDA-Bar-Plot-Data-Channel.png results/figures/02_EDA-Shares-Histogram.png results/figures/03_EDA-Correlation-Plot.png results/tables/mlr_backstep_tidy.rds results/tables/mlr_backstep_glance.rds results/figures/Figure_3.png doc/report.Rmd doc/online_news_pop.bib
+	Rscript -e "rmarkdown::render('doc/report.Rmd', output_format = 'html_document')"
 
 clean: 
 	rm -rf data
 	rm -rf results/tables
 	rm -rf results/figures
-	rm -rf doc/report.pdf
+	rm -rf doc/report.html
