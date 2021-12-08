@@ -20,6 +20,7 @@ library(here)
 ```{r load_model_results, include=FALSE}
 backstep_tidy <- readRDS("../results/tables/mlr_backstep_tidy.rds")
 backstep_glance <- readRDS("../results/tables/mlr_backstep_glance.rds")
+backstep_vif <- readRDS("../results/tables/Table3.rds")
 ```
 
 Our GitHub Repo:
@@ -27,7 +28,7 @@ Our GitHub Repo:
 
 ## Summary
 
-Online articles have become a primary source of news in the digital age. In order to understand factors associated with online news popularity, we examined factors associated with higher shares per day (log transformed) using a multiple linear regression analysis in a dataset containing 36,644 observations [@online-news]. In particular, we are interested in answering two questions: **(i) If the type of news article is associated with the number of shares of online news articles, and (ii) If the day of week a news article is published is associated with the number of shares of online news articles**. Our final model, derived using backward model selection, found statistically significant evidence at 95% confidence level that both type of news article and day of the week of publication are associated with number of shares. Our study achieved an adjusted R-squared score of 0.2051, implying that additional features that are not among our explanatory variables appear to explain a large portion of variability in the shares per day. Further analysis will be required to better understand the factors which associate with online news popularity.
+Online articles have become a primary source of news in the digital age. In order to understand factors associated with online news popularity, we examined factors associated with higher shares per day (log transformed) using a multiple linear regression analysis in a dataset containing 36,644 observations [@online-news]. In particular, we are interested in answering two questions: **(i) If the type of news article is associated with the number of shares of online news articles, and (ii) If the day of week a news article is published is associated with the number of shares of online news articles**. Our final model, derived using backward model selection, found statistically significant evidence at 95% confidence level that both type of news article and day of the week of publication are associated with number of shares, all else equal. Our study achieved an adjusted R-squared score of 0.2051, implying that additional features that are not among our explanatory variables appear to explain a large portion of variability in the shares per day. Further analysis will be required to better understand the factors which associate with online news popularity.
 
 ## Introduction
 
@@ -45,6 +46,8 @@ The two questions are inferential in nature since we cannot attribute causality 
 
 The public dataset our team is using for conducting this analysis called "Online News Popularity", and is available on University of California's Machine Learning Repository (Online News Popularity, 2015). It has 36,644 observations (examples) and 61 columns (attributes), summarizing a range of characteristics about articles that were published by Mashable between 1 January, 2013 and 31 December, 2014. Each row represents a news article and includes covariates that are a mix of categorical, continuous, and binary features. 
 
+A table with all variables and associated description can be found [here](https://github.com/UBC-MDS/online_news_popularity/blob/main/data/processed/Variable_Information.pdf).
+
 ## Methods
 
 #### EDA
@@ -61,7 +64,23 @@ Upon examining the data during EDA, we observed that the distribution of the var
 
 #### Statistical Analysis
 
-A Multiple Linear Regression model was used to understand what factors are associated with online news popularity. The choice of multiple linear regression model is driven by the fact that we want to get a quantitative association of the two features we are interested in this study with our measure of online news popularity. A linear regression provides feature coefficients, which gives us both magnitude and direction of the association, helping answer our question effectively.  
+A Multiple Linear Regression model was used to understand what factors are associated with online news popularity. The choice of multiple linear regression model is driven by the fact that we want to get a quantitative association of the two features we are interested in this study with our measure of online news popularity. A linear regression provides feature coefficients, which gives us both magnitude and direction of the association, helping answer our question effectively. 
+
+The two hypotheses we are testing are as follows:
+
+All else equal,
+
+**HYPOTHESIS 1:**
+
+$H_0$: The coefficient relating whether or not the news article was released on the weekend and our dependent variable, log_shares_per_day is 0.
+
+$H_1$: The coefficient relating whether or not the news article was released on the weekend and our dependent variable, log_shares_per_day is 0.
+
+**HYPOTHESIS 2:**
+
+$H_0$: The coefficients relating the type of article and our dependent variable, log_shares_per_day are individually equal to 0.
+
+$H_1$: The coefficients relating the type of article and our dependent variable, log_shares_per_day are individually equal to 0.
 
 We estimated six versions of this model using “log_shares_per_day” as our dependent variable until we arrived at a regression where all features were statistically significant at the 95% confidence level. In this model, only features that exhibited multicollinearity of less than 0.7 (in terms of magnitude, irrespective of direction) were included. The resulting model was compared to both forward and backward selection models using VIF scores, adjusted R-Squared, and the time taken to run each model to arrive at the best model, which in our case was backward selection model. Finally, we plot the distribution of residuals to visually assess if it follows a normal distribution.
 
@@ -96,11 +115,27 @@ The results of our best model, derived from Backward Model Selection is shown be
 kable(backstep_tidy, caption = "Table 1. Backstep Model Results")
 kable(backstep_glance, caption = "Table 2. Backstep Model Model Performance")
 ```
-Overall, our model has an adjusted R-Squared of 0.2051. This seems like a low R-Squared, particularly given the large number of features included in the model and their statistical significance at alpha = 0.05. This indicates that other variables that are not currently included in the model explain a large portion of the variability in our data. There is not much we can do about this problem, beyond including some interaction variables to assess if there are any interaction effects.
+Overall, our model has an adjusted R-Squared of 0.2051. This seems like a low R-Squared, particularly given the large number of features included in the model and their statistical significance at alpha = 0.05. This indicates that other variables that are not currently included in the model explain a large portion of the variability in our data. 
+
+```{r vif, echo=FALSE, fig.cap="Table 3. VIF for Backward Selection Model Results", fig.align='center', out.width = '100%'}
+kable(backstep_vif, caption = "Table 3. VIF's for Backward Selection Model")
+```
+
+We also find that our VIF's for the model are below the threshold of 10 indicating low odds of multicollinearity.
+
+Next, we include two plots: Figure 4 showing a scatterplot of residuals and Figure 5 showing a Q-Q plot of the residuals to assess normality.
+
+```{r residual_fitted, echo=FALSE, fig.cap="Figure 4. Scatterplot of Residuals", fig.align='center', out.width = '50%'}
+knitr::include_graphics("../results/figures/Figure_1.png")
+```
+
+```{r qqplot, echo=FALSE, fig.cap="Figure 5. Q-Q Plot of Residuals", fig.align='center', out.width = '50%'}
+knitr::include_graphics("../results/figures/Figure_2.png")
+```
 
 Finally, we plot a distribution of the residuals, which looks normally distributed, one of the assumptions of a linear regression.
 
-```{r residual_normality_plot, echo=FALSE, fig.cap="Figure 4. Histogram of Residuals", fig.align='center', out.width = '50%'}
+```{r residual_normality_plot, echo=FALSE, fig.cap="Figure 6. Histogram of Residuals", fig.align='center', out.width = '50%'}
 knitr::include_graphics("../results/figures/Figure_3.png")
 ```
 As next steps, we need to consider if interaction terms can help improve model performance, and perform rigorous statistical tests for the remaining assumptions of a multiple linear regression model – heteroscedasticity and normality of residuals.
