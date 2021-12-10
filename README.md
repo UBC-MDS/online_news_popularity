@@ -29,7 +29,24 @@ The final report is linked: http://htmlpreview.github.io/?https://github.com/UBC
 
 ## Usage
 
-The analysis used to create this report can be replicated by installing the dependencies below and running the following command from the project root directory in the command line/terminal.
+The analysis used to create this report can be replicated using either of the following methods:
+
+1) Using Docker:
+
+*(Note - These instructions will need to be run in a unix shell such as terminal or git bash)*
+
+Please install Docker, clone the Github repository, and run the following command from the project root directory in the command line/terminal to reset the project directory:
+```
+docker run --rm -v /$(pwd):/home/onp jennhoang/online_news_popularity:v0.3.0 make -C /home/onp clean
+```
+Then, run the following command to re-run the analysis and generate the report:
+```
+docker run --rm -v /$(pwd):/home/onp jennhoang/online_news_popularity:v0.3.0 make -C /home/onp all
+```
+
+2) Without Docker:
+
+Please install the dependencies below, clone the Github repository, and run the following command from the project root directory in the command line/terminal to run the analysis
 ```
 make all
 ```
@@ -58,7 +75,7 @@ make clean
 
 ## Dependecy Diagram of Makefile
 
-- A dependency diagram of the Makefile can be found [here](results/figures/Makefile.png).
+![Dependency Diagram](https://github.com/UBC-MDS/online_news_popularity/blob/main/Makefile.png).
 
 
 ## References
