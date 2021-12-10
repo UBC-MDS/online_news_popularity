@@ -56,6 +56,11 @@ make clean
   - car=4.1.2
 - GNU Make 3.81
 
+## Dependecy Diagram of Makefile
+
+- A dependency diagram of the Makefile can be found [here](results/figures/Makefile.png).
+
+
 ## References
 
 Online News Popularity. (2015). UCI Machine Learning Repository. Available at: https://archive-beta.ics.uci.edu/ml/datasets/online+news+popularity.
