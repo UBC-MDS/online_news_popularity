@@ -1,6 +1,6 @@
 # Dockerfile for Online News Popularity Project
 # Authors: Jennifer Hoang, Nagraj Rao, Linhan Cai
-# Date: December 8, 2021
+# Date: December 10, 2021
 
 # use rocker/tidyverse as the base image
 FROM rocker/tidyverse@sha256:d0cd11790cc01deeb4b492fb1d4a4e0d5aa267b595fe686721cfc7c5e5e8a684
@@ -37,7 +37,14 @@ RUN conda install -y -c anaconda \
     docopt \
     altair \
     pandas \
-    numpy 
+    numpy
 
-RUN conda install -c conda-forge altair_saver 
+# install altair-saver and dependencies to export to png
+RUN pip install selenium
+RUN apt-get update && apt-get install -y chromium-chromedriver
+RUN conda install -c conda-forge altair_saver
+RUN npm install -g --force vega-lite vega-cli canvas vega --unsafe-perm=true
+
+# install package for Rmd report render
+RUN apt-get install libxt6
 
