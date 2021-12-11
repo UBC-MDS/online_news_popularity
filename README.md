@@ -31,22 +31,30 @@ The final report is linked: http://htmlpreview.github.io/?https://github.com/UBC
 
 The analysis used to create this report can be replicated using either of the following methods:
 
-1) Using Docker:
+1) **Using Docker:**
 
 *(Note - These instructions will need to be run in a unix shell such as terminal or git bash)*
 
 Please install Docker, clone the Github repository, and run the following command from the project root directory in the command line/terminal to reset the project directory:
 ```
+# For Mac
 docker run --rm -v /$(pwd):/home/onp jennhoang/online_news_popularity:v0.3.0 make -C /home/onp clean
+
+# For Windows
+docker run --rm -v /$(pwd)://home//onp jennhoang/online_news_popularity:v0.3.0 make -C //home//onp clean
 ```
 Then, run the following command to re-run the analysis and generate the report:
 ```
+# For Mac
 docker run --rm -v /$(pwd):/home/onp jennhoang/online_news_popularity:v0.3.0 make -C /home/onp all
+
+# For Windows
+docker run --rm -v /$(pwd)://home//onp jennhoang/online_news_popularity:v0.3.0 make -C //home//onp all
 ```
 
-2) Without Docker:
+2) **Without Docker:**
 
-Please install the dependencies below, clone the Github repository, and run the following command from the project root directory in the command line/terminal to run the analysis
+Please install the dependencies below, clone the Github repository, and run the following command from the project root directory in the command line/terminal to run the analysis:
 ```
 make all
 ```
@@ -75,7 +83,7 @@ make clean
 
 ## Dependecy Diagram of Makefile
 
-![Dependency Diagram](https://github.com/UBC-MDS/online_news_popularity/blob/main/Makefile.png).
+![Dependency Diagram](https://github.com/UBC-MDS/online_news_popularity/blob/main/Makefile.png)
 
 
 ## References
