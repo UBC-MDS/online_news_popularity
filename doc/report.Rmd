@@ -79,6 +79,11 @@ A Multiple Linear Regression model was used to understand what factors are assoc
 
 In particular, the model we are estimating are as follows:
 
+$$log(shares\_per\_day) = \beta_{0} + \beta_{1}*is\_weekend +
+\beta_{2}*Entertainment + \beta_{3}*Social Media + $$
+$$\beta_{4}*Business + \beta_{5}*Technology + 
+\beta_{6}*Lifestyle + \beta_{7}*World + ... +   
+\epsilon $$
 
 where the base group for type of news article is Other.
 
