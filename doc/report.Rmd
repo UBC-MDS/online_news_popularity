@@ -54,7 +54,7 @@ The two questions are inferential in nature since we cannot effective attribute 
 
 ## Data
 
-The public dataset used for conducting this analysis called "Online News Popularity", and is available on University of California's Machine Learning Repository (Online News Popularity, 2015). It has 36,644 observations (examples) and 61 columns (attributes), summarizing a range of characteristics about articles that were published by Mashable between 1 January, 2013 and 31 December, 2014. Each row represents a news article and includes covariates that are a mix of categorical, text, continuous, and binary features. 
+The public dataset used for conducting this analysis called "Online News Popularity", and is available on University of California's Machine Learning Repository [@online-news]. It has 36,644 observations (examples) and 61 columns (attributes), summarizing a range of characteristics about articles that were published by Mashable between 1 January, 2013 and 31 December, 2014. Each row represents a news article and includes covariates that are a mix of categorical, text, continuous, and binary features. 
 
 A table with all variables and associated description can be found [here](https://github.com/UBC-MDS/online_news_popularity/blob/main/data/processed/Variable_Information.pdf).
 
@@ -129,7 +129,7 @@ In `r params$figure3`, we present a correlation plot that highlights the strengt
 knitr::include_graphics("../results/figures/03_EDA-Correlation-Plot.png")
 ```
 
-Before model testing, data cleaning was done to address the findings of  non-informative features, class imbalance, NAN values. And we calculate the shares_per_day and remove outliers, this code can be found [here](https://github.com/UBC-MDS/online_news_popularity/blob/main/src/onp_data_preprocess.py). 
+Before model testing, data cleaning was performed to calculate the log_shares_per_day and remove outliers observed in Figure 2. This code can be found [here](https://github.com/UBC-MDS/online_news_popularity/blob/main/src/onp_data_preprocess.py). 
 
 #### Statistical Analysis
 The results of our best model, derived from Backward Model Selection are shown in `r params$table1` and `r params$table2`. 
